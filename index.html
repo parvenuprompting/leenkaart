@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Batterij Leenkaart — Uitgeleende powerbanks en accu's</title>
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <img src="logo.svg" alt="Batterij Leenkaart logo" />
+        <div class="brand-titles">
+          <h1>Batterij Leenkaart</h1>
+          <p>Overzicht van uitgeleende powerbanks, accu's en apparaten</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="themeToggle" class="icon-btn" title="Wissel lichte / donkere weergave" aria-label="Wissel thema">
+          <span id="themeIcon">🌙</span>
+        </button>
+        <button id="exportCsvBtn" class="btn" title="Exporteer als CSV">CSV</button>
+        <button id="exportJsonBtn" class="btn" title="Exporteer als JSON">JSON</button>
+        <button id="addLoanBtn" class="primary">+ Nieuwe Leenkaart</button>
+      </div>
+    </header>
+
+    <div class="privacy-tag">
+      <span>🔒</span> 100% lokaal in je browser — geen tracking, geen externe servers.
+    </div>
+
+    <!-- Samenvatting / statistieken -->
+    <div class="summary-bar">
+      <div class="summary-card">
+        <div class="label">Totaal geregistreerd</div>
+        <div class="value" id="statTotal">0</div>
+      </div>
+      <div class="summary-card">
+        <div class="label">Uitgeleend</div>
+        <div class="value" id="statActive">0</div>
+      </div>
+      <div class="summary-card">
+        <div class="label">Verstreken / Te laat</div>
+        <div class="value" id="statOverdue" style="color: var(--danger);">0</div>
+      </div>
+      <div class="summary-card">
+        <div class="label">Geretourneerd</div>
+        <div class="value" id="statReturned">0</div>
+      </div>
+    </div>
+
+    <!-- Filters en zoekveld -->
+    <div class="controls-bar">
+      <div class="filter-group">
+        <button class="filter-btn active" data-filter="all">Alles</button>
+        <button class="filter-btn" data-filter="active">Uitgeleend</button>
+        <button class="filter-btn" data-filter="overdue">Te laat</button>
+        <button class="filter-btn" data-filter="returned">Geretourneerd</button>
+      </div>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Zoek op lener of apparaat...">
+      </div>
+    </div>
+
+    <!-- Kaartenlijst -->
+    <div id="cardGrid" class="card-grid">
+      <!-- Wordt dynamisch gevuld -->
+    </div>
+
+    <div id="emptyState" class="empty-state hidden">
+      Geen leenkaarten gevonden. Klik op "+ Nieuwe Leenkaart" om een lening te noteren.
+    </div>
+  </div>
+
+  <!-- Modal voor toevoegen / bewerken -->
+  <div id="loanModal" class="modal-backdrop hidden">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="modalTitle" style="font-size: 1.15rem;">Nieuwe Leenkaart</h2>
+        <button id="closeModalBtn" class="icon-btn" style="border:none; background:transparent; font-size:1.1rem; cursor:pointer;">✕</button>
+      </div>
+      <form id="loanForm">
+        <input type="hidden" id="loanId">
+        
+        <div class="form-group">
+          <label for="itemType">Type apparaat / accu *</label>
+          <input type="text" id="itemType" required placeholder="Bijv. Anker 20.000mAh, Makita 18V accu, Sony NP-FZ100">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="category">Categorie</label>
+            <select id="category">
+              <option value="Powerbank">Powerbank</option>
+              <option value="Gereedschapsaccu">Gereedschapsaccu</option>
+              <option value="Camera-accu">Camera-accu</option>
+              <option value="Oplader / Kabel">Oplader / Kabel</option>
+              <option value="Overig">Overig</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="capacity">Capaciteit / Specificatie</label>
+            <input type="text" id="capacity" placeholder="Bijv. 20.000 mAh, 5.0 Ah">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="borrowerName">Naam lener *</label>
+            <input type="text" id="borrowerName" required placeholder="Voornaam of collega">
+          </div>
+          <div class="form-group">
+            <label for="borrowerContact">Contact (optioneel)</label>
+            <input type="text" id="borrowerContact" placeholder="Telefoon of @handle">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="loanDate">Datum uitgeleend *</label>
+            <input type="date" id="loanDate" required>
+          </div>
+          <div class="form-group">
+            <label for="dueDate">Verwachte retourdatum</label>
+            <input type="date" id="dueDate">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="notes">Notitie / Laadstatus bij uitgifte</label>
+          <textarea id="notes" rows="2" placeholder="Bijv. 100% vol meegegeven met USB-C kabel..."></textarea>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" id="cancelModalBtn">Annuleren</button>
+          <button type="submit" class="primary">Opslaan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
