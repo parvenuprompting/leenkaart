@@ -1,4 +1,4 @@
-# Leenkaart (`proto-batterij-leenkaart` → hernoemd naar generieke Leenkaart)
+# Leenkaart
 
 ![Status](https://img.shields.io/badge/status-prototype-orange.svg)
 ![Type](https://img.shields.io/badge/technologie-HTML5%20%7C%20CSS3%20%7C%20Vanilla%20JS-blue.svg)
@@ -9,7 +9,7 @@ Minimalistische, privacy-vriendelijke webtool om ALLES bij te houden wat je uitl
 
 > **Origineel idee uit het Ideeënarchief:**  
 > *Batterij Leenkaart* (Verzameling: 50 Kleine Tools, groep: Nieuwe concepten):  
-> *"Houdt bij aan wie je een powerbank of accu hebt uitgeleend."* — uitgebreid naar ALLES wat uigeleend wordt.
+> *"Houdt bij aan wie je een powerbank of accu hebt uitgeleend."* — nu voor ALLES wat uigeleend wordt.
 
 ---
 
