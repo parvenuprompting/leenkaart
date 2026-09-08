@@ -2,7 +2,7 @@
 (function() {
   'use strict';
 
-  const STORAGE_KEY = 'proto_batterij_leenkaarten_v1';
+  const STORAGE_KEY = 'leenkaart_v1';
   const THEME_KEY = 'proto_batterij_theme';
 
   // State
@@ -72,7 +72,7 @@
             id: 'loan-1',
             itemType: 'Anker PowerCore 20K',
             category: 'Powerbank',
-            capacity: '20.000 mAh / 65W PD',
+            specificatie: '20.000 mAh / 65W PD',
             borrowerName: 'Mark',
             borrowerContact: '06-12345678',
             loanDate: getRelativeDate(-3),
@@ -85,7 +85,7 @@
             id: 'loan-2',
             itemType: 'Makita BL1850B 18V',
             category: 'Gereedschapsaccu',
-            capacity: '5.0 Ah',
+            specificatie: '5.0 Ah',
             borrowerName: 'Dennis (Klusproject)',
             borrowerContact: 'dennis@werk.local',
             loanDate: getRelativeDate(-8),
@@ -163,7 +163,7 @@
         document.getElementById('loanId').value = item.id;
         document.getElementById('itemType').value = item.itemType;
         document.getElementById('category').value = item.category;
-        document.getElementById('capacity').value = item.capacity || '';
+        document.getElementById('capacity').value = item.specificatie || '';
         document.getElementById('borrowerName').value = item.borrowerName;
         document.getElementById('borrowerContact').value = item.borrowerContact || '';
         document.getElementById('loanDate').value = item.loanDate;
@@ -189,7 +189,7 @@
     const itemData = {
       itemType: document.getElementById('itemType').value.trim(),
       category: document.getElementById('category').value,
-      capacity: document.getElementById('capacity').value.trim(),
+      specificatie: document.getElementById('capacity').value.trim(),
       borrowerName: document.getElementById('borrowerName').value.trim(),
       borrowerContact: document.getElementById('borrowerContact').value.trim(),
       loanDate: document.getElementById('loanDate').value,
@@ -284,7 +284,7 @@
       const matchesSearch = !searchQuery || 
         item.itemType.toLowerCase().includes(searchQuery) ||
         item.borrowerName.toLowerCase().includes(searchQuery) ||
-        (item.capacity && item.capacity.toLowerCase().includes(searchQuery)) ||
+        (item.specificatie && item.specificatie.toLowerCase().includes(searchQuery)) ||
         (item.notes && item.notes.toLowerCase().includes(searchQuery));
 
       if (!matchesSearch) return false;
@@ -329,7 +329,7 @@
           <div class="card-header">
             <div class="item-info">
               <h3>${escapeHtml(item.itemType)}</h3>
-              <div class="item-meta">${escapeHtml(item.category)}${item.capacity ? ' • ' + escapeHtml(item.capacity) : ''}</div>
+              <div class="item-meta">${escapeHtml(item.category)}${item.specificatie ? ' • ' + escapeHtml(item.specificatie) : ''}</div>
             </div>
             ${badgeHtml}
           </div>

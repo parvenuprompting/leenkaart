@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Batterij Leenkaart — Uitgeleende powerbanks en accu's</title>
+  <title>Leenkaart — Alles wat uigeleend wordt</title>
   <link rel="icon" type="image/svg+xml" href="logo.svg">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -11,10 +11,10 @@
   <div class="container">
     <header>
       <div class="brand">
-        <img src="logo.svg" alt="Batterij Leenkaart logo" />
+        <img src="logo.svg" alt="Leenkaart logo" />
         <div class="brand-titles">
-          <h1>Batterij Leenkaart</h1>
-          <p>Overzicht van uitgeleende powerbanks, accu's en apparaten</p>
+          <h1>Leenkaart</h1>
+          <p>Overzicht van alles wat uigeleend wordt — wie, wat, en wanneer het terugkomt</p>
         </div>
       </div>
       <div class="header-actions">
@@ -85,8 +85,8 @@
         <input type="hidden" id="loanId">
         
         <div class="form-group">
-          <label for="itemType">Type apparaat / accu *</label>
-          <input type="text" id="itemType" required placeholder="Bijv. Anker 20.000mAh, Makita 18V accu, Sony NP-FZ100">
+          <label for="itemType">Wat leen je uit? *</label>
+          <input type="text" id="itemType" required placeholder="Bijv. Accu-maker, Boormachine, Sleutel, Boek, €50 contant">
         </div>
 
         <div class="form-row">
@@ -94,6 +94,13 @@
             <label for="category">Categorie</label>
             <select id="category">
               <option value="Powerbank">Powerbank</option>
+              <option value="Gereedschap">Gereedschap</option>
+              <option value="Boek/Media">Boek/Media</option>
+              <option value="Geld/Waarde">Geld/Waarde</option>
+              <option value="Voertuig/Transport">Voertuig/Transport</option>
+              <option value="Kleding/Accessoire">Kleding/Accessoire</option>
+              <option value="Elektronica">Elektronica</option>
+              <option value="Overig">Overig</option>
               <option value="Gereedschapsaccu">Gereedschapsaccu</option>
               <option value="Camera-accu">Camera-accu</option>
               <option value="Oplader / Kabel">Oplader / Kabel</option>
@@ -101,8 +108,8 @@
             </select>
           </div>
           <div class="form-group">
-            <label for="capacity">Capaciteit / Specificatie</label>
-            <input type="text" id="capacity" placeholder="Bijv. 20.000 mAh, 5.0 Ah">
+            <label for="capacity">Specificatie (optioneel)</label>
+            <input type="text" id="capacity" placeholder="Bijv. 20.000 mAh, Maat 42, 3e druk, €50">
           </div>
         </div>
 
