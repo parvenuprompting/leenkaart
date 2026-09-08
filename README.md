@@ -1,9 +1,9 @@
 # Leenkaart
 
-![Status](https://img.shields.io/badge/status-prototype-orange.svg)
+[![Status](https://img.shields.io/badge/status-live-success.svg)]()
 ![Type](https://img.shields.io/badge/technologie-HTML5%20%7C%20CSS3%20%7C%20Vanilla%20JS-blue.svg)
 ![Storage](https://img.shields.io/badge/opslag-100%25%20lokaal%20(localStorage)-green.svg)
-![License](https://img.shields.io/badge/licentie-MIT-lightgrey.svg)
+[![License: MIT](https://img.shields.io/badge/licentie-MIT-blue.svg)](LICENSE)
 
 Minimalistische, privacy-vriendelijke webtool om ALLES bij te houden wat je uitleent — powerbanks, gereedschap, boeken, geld, sleutels, kleding, wat dan ook. Wie, wat, en wanneer het terugkomt.
 
